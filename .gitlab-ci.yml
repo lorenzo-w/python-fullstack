@@ -1,0 +1,29 @@
+image: ghcr.io/astral-sh/uv:alpine
+before_script:
+  - uv sync --group ci
+cache:
+  key: venv-cache
+  paths:
+    - .venv
+
+checks:
+  script:
+    - uv run ruff check .
+    - uv run pyright .
+    - uv run vtr deps-check-license-compliance
+    - uv run vtr deps-check-vulnerabilities
+    - uv run vtr deps-check-unused-undeclared
+
+  rules:
+    # Only pushes to merge-request branches and main branch trigger checks
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+
+release:
+  script:
+    - uv build --out-dir ./dist/pypi
+    - uv run semantic-release publish
+
+  rules:
+    # Only pushes to main branch trigger a release
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH

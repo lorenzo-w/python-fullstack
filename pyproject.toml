@@ -1,0 +1,107 @@
+[project]
+name = "python-fullstack"
+version = "0.1.0"
+description = "Repository template for a fullstack Python development project."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.13,<4"
+dependencies = [
+    "dotenv>=0.9.9,<0.10.0",
+    "fastexcel>=0.20.2,<0.21.0",
+    "great-tables[extra]>=0.21.0,<0.22.0",
+    "matplotlib>=3.10.9,<4.0.0",
+    "numpy>=2.4.4,<3.0.0",
+    "pandas>=3.0.2,<4.0.0",
+    "panel>=1.8.10,<2.0.0",
+    "pint>=0.25.3,<0.26.0",
+    "plotly>=6.7.0,<7.0.0",
+    "polars>=1.40.1,<2.0.0",
+    "pydantic>=2.13.3,<3.0.0",
+    "pyyaml>=6.0.3,<7.0.0",
+    "requests>=2.33.1,<3.0.0",
+    "scikit-learn>=1.8.0,<2.0.0",
+    "scipy>=1.17.1,<2.0.0",
+    "structlog>=25.5.0,<26.0.0",
+    "typer>=0.25.1,<0.26.0",
+    "xlsxwriter>=3.2.9,<4.0.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.7.2,<0.8"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "black>=26.3.1,<27.0.0",
+    "debugpy>=1.8.20",
+    "deptry>=0.25.1,<0.26.0",
+    "ipykernel>=7.2.0",
+    "ipywidgets>=8.1.8,<9.0.0",
+    "jupyter>=1.1.1,<2.0.0",
+    "licensecheck>=2025.1.0,<2026.0.0",
+    "markdown-callouts>=0.4.0,<0.5.0",
+    "markdown-exec>=1.12.1,<2.0.0",
+    "mkdocs-llmstxt>=0.5.0,<0.6.0",
+    "mkdocs-macros-plugin>=1.5.0,<2.0.0",
+    "mkdocs-material>=9.7.6,<10.0.0",
+    "mkdocs-section-index>=0.3.12,<0.4.0",
+    "mkdocstrings[python]>=1.0.4,<2.0.0",
+    "pip-audit>=2.10.0,<3.0.0",
+    "properdocs>=1.6.7,<2.0.0",
+    "pytest>=9.0.3,<10.0.0",
+    "pytest-cov>=7.1.0,<8.0.0",
+    "rich>=15.0.0,<16.0.0",
+    "ruff>=0.15.12,<0.16.0",
+    "vscode-task-runner>=3.0.1,<4.0.0",
+]
+ci = [
+    { include-group = "dev" },
+    "pyright[nodejs]>=1.1.409,<2.0.0",
+    "python-semantic-release>=9.3.1,<10.0.0",
+]
+
+[tool.uv]
+add-bounds = "major"
+
+[tool.uv.build-backend]
+module-name = "src"
+module-root = "."
+
+[tool.ruff]
+# Enable following linters:
+# - pycodestyle (`E`, `W`)
+# - Pyflakes (`F`)
+# - mccabe (`C90`)
+# - pep8-naming (`N`)
+# - pydocstyle (`D`)
+# - pyupgrade (`UP`)
+select = ["E", "W", "F", "C90", "N", "D", "UP"]
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
+[tool.ruff.mccabe]
+max-complexity = 12
+
+[tool.deptry]
+known_first_party = ["src"]
+
+[tool.deptry.per_rule_ignores]
+DEP002 = [
+    "openpyxl",
+    "pandas-stubs",
+    "notebook",
+    "ipywidgets",
+    "ipykernel",
+    "isort",
+]
+
+[tool.pytest.ini_options]
+addopts = ["--import-mode=importlib"]
+pythonpath = ["src"]
+
+[tool.pyright]
+reportMatchNotExhaustive = true
+reportIncompatibleVariableOverride = true
+reportIncompatibleMethodOverride = true
+reportOverlappingOverload = true

@@ -1,0 +1,8 @@
+brew "git"
+brew "deno"
+brew "ollama"
+brew "pandoc"
+brew "podman-desktop"
+brew "podman"
+brew "uv"
+brew "vscodium"

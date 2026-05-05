@@ -1,0 +1,14 @@
+# Generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+SBOM.json
+
+# Virtual environments
+.venv
+
+# Secrets
+.env

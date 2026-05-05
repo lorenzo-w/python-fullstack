@@ -1,0 +1,82 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "ai-assist-embedding",
+      "detail": "AI Assistant: Pull ollama code embedding model",
+      "type": "shell",
+      "command": "ollama pull qwen3-embedding:4b",
+      "isBackground": true,
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "ai-assist-completion",
+      "detail": "AI Assistant: Pull ollama code completion model",
+      "type": "shell",
+      "command": "ollama pull qwen2.5-coder:1.5b",
+      "isBackground": true,
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "ai-assist-indexing",
+      "detail": "AI Assistant: Run qdrant vector DB for code indexing",
+      "type": "shell",
+      "command": "podman start roo-qdrant || podman run -p 6333:6333 -v qdrant_storage:/qdrant/storage --name roo-qdrant docker.io/qdrant/qdrant:v1",
+      "isBackground": true,
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "build-docs",
+      "detail": "Build documentation page HTML via MkDocs",
+      "type": "shell",
+      "command": "uv run properdocs build -f ./docs/.config.yml",
+      "problemMatcher": []
+    },
+    {
+      "label": "deps-check-license-compliance",
+      "detail": "Dependency Check: Compatibility between project and deps licenses",
+      "type": "shell",
+      "command": "uv run licensecheck --zero --ignore-licenses UNKNOWN",
+      "problemMatcher": []
+    },
+    {
+      "label": "deps-check-vulnerabilities",
+      "detail": "Dependency Check: Vulnerabilities",
+      "type": "shell",
+      "command": "uv run pip-audit --skip-editable",
+      "problemMatcher": []
+    },
+    {
+      "label": "deps-check-unused-undeclared",
+      "detail": "Dependency Check: Unused or undeclared deps",
+      "type": "shell",
+      "command": "uv run deptry .",
+      "problemMatcher": []
+    },
+    {
+      "label": "deps-info-outdated",
+      "detail": "Dependency Info: List installed versions & available major upgrades",
+      "type": "shell",
+      "command": "uv tree --depth=1 --outdated",
+      "problemMatcher": []
+    },
+    {
+      "label": "deps-info-sbom",
+      "detail": "Dependency Info: Generate Software Bill Of Materials (SBOM)",
+      "type": "shell",
+      "command": "uv export --format cyclonedx1.5 > SBOM.json",
+      "problemMatcher": []
+    }
+  ]
+}

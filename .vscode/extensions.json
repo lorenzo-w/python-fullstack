@@ -1,0 +1,29 @@
+{
+  "recommendations": [
+    "aaron-bond.better-comments",
+    "bierner.markdown-mermaid",
+    "charliermarsh.ruff",
+    "christian-kohler.path-intellisense",
+    "continue.continue",
+    "cweijan.vscode-database-client2",
+    "eamodio.gitlens",
+    "gitlab.gitlab-workflow",
+    "kevinrose.vsc-python-indent",
+    "ms-azuretools.vscode-containers",
+    "ms-python.black-formatter",
+    "ms-python.debugpy",
+    "ms-python.python",
+    "ms-toolsai.jupyter",
+    "ms-vscode-remote.remote-wsl",
+    "qwtel.sqlite-viewer",
+    "rafaelha.vscode-flamegraph",
+    "redhat.vscode-yaml",
+    "repreng.csv",
+    "rooveterinaryinc.roo-cline",
+    "seatonjiang.gitmoji-vscode",
+    "tamasfe.even-better-toml",
+    "tomoki1207.pdf",
+    "tyriar.sort-lines",
+    "yzhang.markdown-all-in-one"
+  ]
+}

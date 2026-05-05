@@ -1,0 +1,68 @@
+services:
+  panel:
+    build: .
+    command: "uv run app/panel/main.py"
+    env_file:
+      - .env
+    volumes:
+      - app-data:/persist
+    networks:
+      - caddy
+    labels:
+      caddy: "${APP_BASE_URL}"
+      caddy.tls.issuer: acme
+      caddy.tls.issuer.profile: shortlived
+      caddy.reverse_proxy: "{{upstreams 8080}}"
+    restart: unless-stopped
+    depends_on:
+      - db
+
+  rest-api:
+    build: .
+    command: "uv run app/rest-api/main.py"
+    env_file:
+      - .env
+    volumes:
+      - app-data:/persist
+    networks:
+      - caddy
+    labels:
+      caddy: "${APP_BASE_URL}/api"
+      caddy.tls.issuer: acme
+      caddy.tls.issuer.profile: shortlived
+      caddy.reverse_proxy: "{{upstreams 9090}}"
+    restart: unless-stopped
+    depends_on:
+      - db
+
+  docs:
+    build: .
+    command: "uv run properdocs serve -f ./docs/.config.yml --no-livereload"
+    environment:
+      SITE_URL: "${APP_BASE_URL}/docs"
+    networks:
+      - caddy
+    labels:
+      caddy: "${APP_BASE_URL}/docs"
+      caddy.tls.issuer: acme
+      caddy.tls.issuer.profile: shortlived
+      caddy.reverse_proxy: "{{upstreams 8000}}"
+    restart: unless-stopped
+
+  db:
+    image: postgres:18
+    environment:
+      POSTGRES_DB: app
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: "${DB_PASSWORD}"
+    volumes:
+      - db-data:/var/lib/postgresql
+    restart: unless-stopped
+
+networks:
+  caddy:
+    external: true
+
+volumes:
+  app-data: {}
+  db-data: {}
