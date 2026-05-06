@@ -4,7 +4,6 @@
     "config:recommended"
   ],
   "enabledManagers": [
-    "uv",
     "pep621"
   ],
   "dependencyDashboard": false
