@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  checks:
+    name: Checks
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/astral-sh/uv:alpine
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Restore uv virtualenv cache
+        uses: actions/cache@v4
+        with:
+          path: .venv
+          key: venv-cache-${{ runner.os }}-${{ hashFiles('uv.lock') }}
+          restore-keys: |
+            venv-cache-${{ runner.os }}-
+
+      - name: Install dependencies
+        run: uv sync --group dev --group ci
+
+      - name: Run Ruff
+        run: uv run ruff check .
+
+      - name: Run Pyright
+        run: uv run pyright .
+
+      - name: Run Pytest
+        run: uv run pytest tests
+
+      - name: Check license compliance
+        run: uv run vtr deps-check-license-compliance
+
+      - name: Check vulnerabilities
+        run: uv run vtr deps-check-vulnerabilities
+
+      - name: Check unused undeclared deps
+        run: uv run vtr deps-check-unused-undeclared

@@ -1,5 +1,5 @@
 brew "git"
-brew "deno"
+brew "node"
 brew "ollama"
 brew "pandoc"
 brew "podman-desktop"

@@ -12,3 +12,6 @@ SBOM.json
 
 # Secrets
 .env
+
+# Local data
+/data

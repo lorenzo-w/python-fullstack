@@ -77,6 +77,41 @@
       "type": "shell",
       "command": "uv export --format cyclonedx1.5 > SBOM.json",
       "problemMatcher": []
+    },
+    {
+      "label": "serve-fastapi-dev",
+      "detail": "Serve FastAPI in development mode with auto-reload",
+      "type": "shell",
+      "command": "uv run fastapi dev ./app/fastapi/main.py",
+      "problemMatcher": []
+    },
+    {
+      "label": "serve-fastapi-prod",
+      "detail": "Serve FastAPI in production mode",
+      "type": "shell",
+      "command": "uv run fastapi run ./app/fastapi/main.py",
+      "problemMatcher": []
+    },
+    {
+      "label": "serve-streamlit",
+      "detail": "Serve Streamlit WebApp",
+      "type": "shell",
+      "command": "uv run streamlit ./app/streamlit/main.py",
+      "problemMatcher": []
+    },
+    {
+      "label": "serve-docs-dev",
+      "detail": "Serve docs pages in development mode with auto-reload",
+      "type": "shell",
+      "command": "uv run properdocs serve -f ./docs/.config.yml",
+      "problemMatcher": []
+    },
+    {
+      "label": "serve-docs-prod",
+      "detail": "Serve docs pages in production mode",
+      "type": "shell",
+      "command": "uv run properdocs serve -f ./docs/.config.yml --no-livereload",
+      "problemMatcher": []
     }
   ]
 }

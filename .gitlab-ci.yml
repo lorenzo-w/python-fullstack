@@ -1,6 +1,6 @@
 image: ghcr.io/astral-sh/uv:alpine
 before_script:
-  - uv sync --group ci
+  - uv sync --group dev --group ci
 cache:
   key: venv-cache
   paths:
@@ -10,6 +10,7 @@ checks:
   script:
     - uv run ruff check .
     - uv run pyright .
+    - uv run pytest tests
     - uv run vtr deps-check-license-compliance
     - uv run vtr deps-check-vulnerabilities
     - uv run vtr deps-check-unused-undeclared

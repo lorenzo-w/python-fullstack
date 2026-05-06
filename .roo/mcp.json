@@ -1,28 +1,20 @@
 {
-	"mcpServers": {
-		"git": {
-			"command": "uvx",
-			"args": [
-				"mcp-server-git",
-				"--repository",
-				"./"
-			]
-		},
-		"memory": {
-			"command": "deno",
-			"args": [
-				"x",
-				"-y",
-        "@modelcontextprotocol/server-memory"
-			]
-		},
-		"context7": {
-			"type": "streamable-http",
-			"url": "https://mcp.context7.com/mcp"
-		},
-		"exa": {
-			"type": "streamable-http",
-			"url": "https://mcp.exa.ai/mcp"
-		}
-	}
+  "mcpServers": {
+    "git": {
+      "command": "uvx",
+      "args": ["mcp-server-git", "--repository", "./"]
+    },
+    "memory": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"]
+    },
+    "context7": {
+      "type": "streamable-http",
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "exa": {
+      "type": "streamable-http",
+      "url": "https://mcp.exa.ai/mcp"
+    }
+  }
 }

@@ -8,10 +8,6 @@ properties:
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       settings:
-        id: DenoLand.Deno
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      settings:
         id: Git.Git
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
@@ -29,6 +25,10 @@ properties:
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       settings:
         id: Ollama.Ollama
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      settings:
+        id: OpenJS.NodeJS
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       settings:
