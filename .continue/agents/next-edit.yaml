@@ -1,0 +1,9 @@
+name: Autocomplete Next-Edit Config
+version: 1.0.0
+schema: v1
+models:
+  - name: Continue Instinct
+    provider: ollama
+    model: nate/instinct
+    roles:
+      - autocomplete
