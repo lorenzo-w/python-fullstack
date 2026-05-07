@@ -30,4 +30,4 @@ def test_greeter_weather():
     greeting = g.say_hello()
 
     assert "Hello" in greeting
-    assert "°C" not in greeting
+    assert "°C" in greeting

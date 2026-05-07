@@ -14,5 +14,8 @@
   ],
   "json.schemaDownload.trustedDomains": {
     "https://docs.renovatebot.com": true
-  }
+  },
+  "python.testing.pytestArgs": ["tests"],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true
 }

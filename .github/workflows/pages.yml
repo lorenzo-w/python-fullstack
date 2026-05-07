@@ -54,4 +54,4 @@ jobs:
             mkdocs-material-
 
       - name: Publish pages
-        run: uv run properdocs gh-deploy --force
+        run: uv run properdocs gh-deploy -f ./docs/.config.yml --force
