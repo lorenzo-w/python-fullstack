@@ -11,7 +11,7 @@ The first tab in the left sidebar always shows you the full directory tree of th
 - *Reveal in File Explorer*: Opens the selected file/folder in your system's file explorer.
 - *Find in Folder*: Switches to the *Search* tab for search-and-replace within that folder (see below for details).
 
-![alt text](image.png)
+![alt text](img/file-context-menu.png)
 
 > **Exercise 1:** Create a new file named `tutorial.py` in the `src` folder, then open that folder in your system explorer.
 

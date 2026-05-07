@@ -9,8 +9,19 @@ use_directory_urls: false
 dev_addr: 127.0.0.1:9000
 
 nav:
-  - Home: ../README.md
-  - Python API Reference: ref-python-api.md
+  - Home: index.md
+  - Usage:
+      - how-to-get-started.md
+      - tutorial-ide-vscode.md
+      - tutorial-roo-code.md
+      - tutorial-code-integration.md
+      - how-to-add-dependencies.md
+      - how-to-check-quality.md
+      - how-to-deploy-locally.md
+      - how-to-choose-an-ai-model.md
+  - Reference:
+      - Python API: ref-python-api.md
+      - Directory Structrure: ref-directory-structure.md
 
 validation:
   omitted_files: warn

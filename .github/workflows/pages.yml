@@ -9,8 +9,6 @@ jobs:
   pages:
     name: Pages Deployment
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/astral-sh/uv:alpine
 
     permissions:
       contents: write
@@ -22,6 +20,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Install uv
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh
 
       - name: Restore uv virtualenv cache
         uses: actions/cache@v4

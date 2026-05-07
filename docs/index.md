@@ -1,3 +1,7 @@
+---
+hide:
+- navigation
+---
 # Python FullStack Docs
 
 Welcome to the Python-FullStack documentation! 👋
