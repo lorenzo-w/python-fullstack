@@ -32,7 +32,8 @@ The `Dockerfile` and `compose.yaml` in `/deploy` can be used together to deploy 
 
 ## The Agent's Job
 
-Your main job is to assist with improving the quality of code in `/src` (ideally making them pass the CI checks), and help write *glue code* for app interfaces in `/app`.
+- Your main job is to assist with improving the quality of code in `/src` (ideally making them pass the CI checks), and help write *glue code* for app interfaces in `/app`.
+- You may use the `/src/hello_world.py` module as an authoratative example on how to construct this glue code (it has all interfaces implemented)
 
 ## Further Infos
 
