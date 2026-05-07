@@ -15,6 +15,7 @@ Names of directories and config files in this repository are mostly based on com
 - `.gitignore`: Files to ignore when commiting into the Git repository
 - `.gitlab-ci.yml`: GitLab-specific CI pipelines
 - `.releaserc.yml`: Configuration for auto-generating releases based on commits (via [semantic-release](https://github.com/semantic-release/semantic-release))
+- `AGENTS.md`: Common, repo-specific system prompt for all AI agents.
 - `Brewfile`: System-dependencies for development on MacOS or Linux (installable via [Homebrew](https://github.com/Homebrew/brew))
 - `configuration.winget`: System-dependencies for development on Windows (installable via [WinGet](https://learn.microsoft.com/en-us/windows/package-manager/winget/))
 - `pyproject.toml`: Central Python project config ([PyPI](https://pypi.org/) dependencies, name, authors, linting config, etc.)

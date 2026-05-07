@@ -96,7 +96,7 @@
       "label": "serve-streamlit",
       "detail": "Serve Streamlit WebApp",
       "type": "shell",
-      "command": "uv run streamlit run ./app/web_gui/main.py",
+      "command": "uv run streamlit run ./app/web_gui/main.py --server.port 7000",
       "problemMatcher": []
     },
     {
@@ -111,6 +111,13 @@
       "detail": "Serve docs pages in production mode",
       "type": "shell",
       "command": "uv run properdocs serve -f ./docs/.config.yml --no-livereload",
+      "problemMatcher": []
+    },
+    {
+      "label": "deploy-local",
+      "detail": "Deploy the combined API + GUI + docs webapp locally via podman",
+      "type": "shell",
+      "command": "podman compose --file ./deploy/compose.local.yaml up",
       "problemMatcher": []
     }
   ]
