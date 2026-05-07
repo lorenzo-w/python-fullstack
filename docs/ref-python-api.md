@@ -1,3 +1,8 @@
-# Python API Reference
+---
+hide:
+- navigation
+---
+# ::: src
 
-::: src
+    options:
+        show_submodules: true

@@ -12,7 +12,9 @@ app = Typer()
 @app.command()
 def say_hello(
     name: Annotated[str, Option(help="Name of the greeter")],
-    correspondent: Annotated[str, Option(help="Name of the one who is greeted")],
+    correspondent: Annotated[
+        str, Option(help="Name of the one who is greeted")
+    ] = "world",
     tell_time: Annotated[
         bool, Option(help="Tell the current time along with the greeting")
     ] = True,
@@ -23,8 +25,10 @@ def say_hello(
         tuple[float, float],
         Option(help="Location coordinates (lat, lon) to tell the weather for."),
     ] = (48.42167, 8.2345051),
-) -> str:
+) -> None:
     """Create an ad-hoc Greeter and make it say hello."""
-    return Greeter(
-        name, correspondent, tell_time, tell_weather, weather_location
-    ).say_hello()
+    print(
+        Greeter(
+            name, correspondent, tell_time, tell_weather, weather_location
+        ).say_hello()
+    )

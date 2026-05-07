@@ -1,6 +1,7 @@
-"""Common database code and state for all API routes."""
+"""Common database code and persistent application state."""
 
 import os
+from pathlib import Path
 
 from sqlalchemy.engine import Engine
 from sqlmodel import SQLModel, create_engine
@@ -12,8 +13,11 @@ def get_sql_engine() -> Engine:
     """Return the singleton SQLAlchemy engine, create if necessary."""
     global _engine
     if _engine is None:
+        if not Path("data").exists():
+            Path("data").mkdir()
+
         _engine = create_engine(
-            f"postgresql://{os.environ['APP_DB_USER']}:{os.environ['SERVICE_PASSWORD_DB']}@{os.environ['APP_DB_HOST']}/{os.environ['APP_DB_DATABASE']}",
+            os.environ.get("APP_DB_URL", "sqlite:///data/local.db"),
         )
         SQLModel.metadata.create_all(_engine)
 

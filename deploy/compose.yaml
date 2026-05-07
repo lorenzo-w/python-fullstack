@@ -12,10 +12,8 @@ services:
     build: .
     command: "uv run vtr serve-fastapi-prod"
     environment:
-      - APP_DB_HOST=db
-      - APP_DB_USER=app
-      - APP_DB_DATABASE=app
-      - SERVICE_PASSWORD_DB
+      APP_DB_URL: "postgresql://${APP_DB_USER}:${SERVICE_PASSWORD_DB}@${APP_DB_HOST}/\
+        ${APP_DB_DATABASE}"
     volumes:
       - app-data:/app/data
     restart: unless-stopped

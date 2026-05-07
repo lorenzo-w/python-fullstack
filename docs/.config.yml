@@ -8,8 +8,8 @@ site_dir: ../dist/docs
 use_directory_urls: false
 
 nav:
-  - Home: index.md
-  - Python API: ref-python-api.md
+  - Home: ../README.md
+  - Python API Reference: ref-python-api.md
 
 validation:
   omitted_files: warn
@@ -18,8 +18,8 @@ validation:
 
 theme:
   name: material
-  logo: assets/logo-kit-white.png
-  favicon: assets/favicon.ico
+  logo: img/logo-kit-white.png
+  favicon: img/favicon.ico
   features:
     - announce.dismiss
     - content.action.edit
@@ -55,6 +55,12 @@ theme:
       toggle:
         icon: material/weather-night
         name: Switch to system preference
+
+extra_css:
+  - css/mkdocstrings.css
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js
 
 markdown_extensions:
   - abbr
@@ -101,9 +107,10 @@ plugins:
       default_handler: python
       handlers:
         python:
-          paths: [ ../src ]
+          paths: [ ../src, ../app ]
           inventories:
             - https://docs.python.org/3/objects.inv
+            - https://pydantic.dev/docs/validation/latest/objects.inv
           options:
             backlinks: tree
             docstring_options:
@@ -111,7 +118,6 @@ plugins:
             docstring_section_style: list
             filters: public
             heading_level: 1
-            inherited_members: true
             line_length: 88
             merge_init_into_class: true
             parameter_headings: true
@@ -120,7 +126,7 @@ plugins:
             relative_crossrefs: true
             scoped_crossrefs: true
             separate_signature: true
-            show_bases: false
+            show_bases: true
             show_inheritance_diagram: true
             show_root_heading: true
             show_root_full_path: false
@@ -132,3 +138,5 @@ plugins:
             signature_crossrefs: true
             summary: true
             unwrap_annotated: true
+            extensions:
+              - griffe_fieldz

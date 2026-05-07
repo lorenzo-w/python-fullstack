@@ -4,6 +4,9 @@ from datetime import datetime
 
 import requests
 from pydantic.dataclasses import dataclass
+from structlog.stdlib import get_logger
+
+logger = get_logger()
 
 
 @dataclass
@@ -35,6 +38,8 @@ class Greeter:
 
     def _gen_weather_text(self) -> str:
         info = requests.get(self._weather_url).json()
+        logger.debug("Received weather info", info=info)
+
         temp: float = info["current"]["temperature_2m"]
 
         opinion = "hot" if temp > 30 else "comfortable" if temp > 15 else "chilly"

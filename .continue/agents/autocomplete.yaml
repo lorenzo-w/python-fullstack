@@ -4,6 +4,6 @@ schema: v1
 models:
   - name: Continue Instinct
     provider: ollama
-    model: nate/instinct
+    model: qwen2.5-coder:1.5b
     roles:
       - autocomplete

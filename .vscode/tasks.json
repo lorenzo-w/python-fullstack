@@ -7,7 +7,7 @@
       "label": "ai-assist-embedding",
       "detail": "AI Assistant: Pull ollama code embedding model",
       "type": "shell",
-      "command": "ollama pull qwen3-embedding:4b",
+      "command": "ollama pull qwen3-embedding:0.6b",
       "isBackground": true,
       "runOptions": {
         "runOn": "folderOpen"
@@ -47,7 +47,7 @@
       "label": "deps-check-license-compliance",
       "detail": "Dependency Check: Compatibility between project and deps licenses",
       "type": "shell",
-      "command": "uv run licensecheck --zero --ignore-licenses UNKNOWN",
+      "command": "uv run licensecheck --zero --ignore-licenses UNKNOWN --ignore-packages mypy-extensions -g dev",
       "problemMatcher": []
     },
     {
@@ -82,21 +82,21 @@
       "label": "serve-fastapi-dev",
       "detail": "Serve FastAPI in development mode with auto-reload",
       "type": "shell",
-      "command": "uv run fastapi dev ./app/fastapi/main.py",
+      "command": "uv run fastapi dev ./app/rest_api/main.py",
       "problemMatcher": []
     },
     {
       "label": "serve-fastapi-prod",
       "detail": "Serve FastAPI in production mode",
       "type": "shell",
-      "command": "uv run fastapi run ./app/fastapi/main.py",
+      "command": "uv run fastapi run ./app/rest_api/main.py",
       "problemMatcher": []
     },
     {
       "label": "serve-streamlit",
       "detail": "Serve Streamlit WebApp",
       "type": "shell",
-      "command": "uv run streamlit ./app/streamlit/main.py",
+      "command": "uv run streamlit run ./app/web_gui/main.py",
       "problemMatcher": []
     },
     {

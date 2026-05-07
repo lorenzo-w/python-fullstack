@@ -1,8 +1,8 @@
-"""Main CLI script."""
+"""Python FullStack CLI."""
 
 import typer
 
-from .commands import hello_world
+from app.cli.commands import hello_world
 
 app = typer.Typer()
 
