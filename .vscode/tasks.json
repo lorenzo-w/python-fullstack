@@ -47,7 +47,7 @@
       "label": "deps-check-license-compliance",
       "detail": "Dependency Check: Compatibility between project and deps licenses",
       "type": "shell",
-      "command": "uv run licensecheck --zero --ignore-licenses UNKNOWN --ignore-packages mypy-extensions -g dev",
+      "command": "uv run licensecheck --zero --ignore-licenses UNKNOWN --ignore-packages mypy-extensions matplotlib-inline -g dev",
       "problemMatcher": []
     },
     {
