@@ -6,7 +6,11 @@ You can use your own (simple) Python module for this tutorial or rely on the pro
 
 This will mostly be a series of prompts to be put into the Roo chat with a bit of extra explanation. Be sure to check out the other docs to find more information about what's going on.
 
-## 1. Add missing dependencies
+## 0. Add missing deps
+
+**Prompt**: Add the dependencies `fluids` and `pint`. Use `uv add` in the terminal.
+
+## 1. Convert function to class
 
 > This is a pattern for deferred function execution, where you first collect the args as attributes of an object and then execute via a dedicated method. It is rather optional but makes integrating with SQL data-storage easier.
 
