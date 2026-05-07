@@ -499,6 +499,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial for integrating custom code modules
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="tutorial-code-integration.html" class="md-nav__link md-nav__link--active">
         
   
@@ -515,6 +533,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-add-missing-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Add missing dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-create-typer-cli-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Create Typer CLI command
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-create-fastapi-route" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Create FastAPI route
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-create-streamlit-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Create Streamlit page
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-run-quality-checks-to-see-if-code-is-good" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Run quality checks to see if code is good
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-deploy-locally-to-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Deploy locally to test
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -775,6 +878,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-add-missing-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Add missing dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-create-typer-cli-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Create Typer CLI command
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-create-fastapi-route" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Create FastAPI route
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-create-streamlit-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Create Streamlit page
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-run-quality-checks-to-see-if-code-is-good" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Run quality checks to see if code is good
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-deploy-locally-to-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Deploy locally to test
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -859,6 +1036,42 @@
 <blockquote>
 <p>You should be familiar with VSCode and RooCode basics for this. See respective tutorials.</p>
 </blockquote>
+<p>This will mostly be a series of prompts to be put into the Roo chat with a bit of extra explanation. Be sure to check out the other docs to find more information about what's going on.</p>
+<h2 id="1-add-missing-dependencies">1. Add missing dependencies<a class="headerlink" href="#1-add-missing-dependencies" title="Permanent link">¤</a></h2>
+<blockquote>
+<p>This is a pattern for deferred function execution, where you first collect the args as attributes of an object and then execute via a dedicated method. It is rather optional but makes integrating with SQL data-storage easier.</p>
+</blockquote>
+<ul>
+<li><strong>File Context</strong>: (Enter <code>@</code> in Roo chat and select file in menu)</li>
+<li>Entire <code>/src/tube_backpressure.py</code></li>
+<li>Entire <code>/src/hello_world.py</code></li>
+<li><strong>Prompt</strong>: Convert the function <code>tube_backpressure</code> into a pydantic dataclass to enable deferred execution. Name the class <code>TubeFluidics</code> and the method for calculating the backpressure <code>calc_backpressure</code>.</li>
+</ul>
+<h2 id="2-create-typer-cli-command">2. Create Typer CLI command<a class="headerlink" href="#2-create-typer-cli-command" title="Permanent link">¤</a></h2>
+<ul>
+<li><strong>File Context</strong>: (Enter <code>@</code> in Roo chat and select file in menu)</li>
+<li>Entire <code>/src/tube_backpressure.py</code></li>
+<li>Entire <code>/app/cli</code> folder</li>
+<li><strong>Prompt</strong>: Add another Typer CLI command as a separate file in <code>/app/cli/commands</code>, which exposes the <code>TubeFluidics.calc_backpressure</code> function.</li>
+</ul>
+<h2 id="3-create-fastapi-route">3. Create FastAPI route<a class="headerlink" href="#3-create-fastapi-route" title="Permanent link">¤</a></h2>
+<ul>
+<li><strong>File Context</strong>: (Enter <code>@</code> in Roo chat and select file in menu)</li>
+<li>Entire <code>/src/tube_backpressure.py</code></li>
+<li>Entire <code>/app/rest_api</code> folder</li>
+<li><strong>Prompt</strong>: Add another FastAPI router as a separate file in <code>/app/rest_api/routes</code>, which derives a SQLModel subclass of <code>TubeFluidics</code> for database storage and allows for creating, listing and editing of these object via the API. Add a sub-path to expose the <code>calc_backpressure</code> method.</li>
+</ul>
+<h2 id="4-create-streamlit-page">4. Create Streamlit page<a class="headerlink" href="#4-create-streamlit-page" title="Permanent link">¤</a></h2>
+<ul>
+<li><strong>File Context</strong>: (Enter <code>@</code> in Roo chat and select file in menu)</li>
+<li>Entire <code>/src/tube_backpressure.py</code></li>
+<li>Entire <code>/app/web_gui</code> folder</li>
+<li><strong>Prompt</strong>: Add another Streamlit page as a separate file in <code>/app/web_gui/pages</code>, which exposes the <code>TubeFluidics.calc_backpressure</code> method via a form + submit button + simple display of the returned result.</li>
+</ul>
+<h2 id="5-run-quality-checks-to-see-if-code-is-good">5. Run quality checks to see if code is good<a class="headerlink" href="#5-run-quality-checks-to-see-if-code-is-good" title="Permanent link">¤</a></h2>
+<p>See <a href="how-to-check-quality.html">how to page</a>.</p>
+<h2 id="5-deploy-locally-to-test">5. Deploy locally to test<a class="headerlink" href="#5-deploy-locally-to-test" title="Permanent link">¤</a></h2>
+<p>See <a href="how-to-deploy-locally.html">how to page</a>.</p>
 
 
 
