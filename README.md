@@ -10,4 +10,4 @@ This repository is intended as a template for turning **pure Python modules** (f
 4. Supply Ai assistants with high-quality context for working within this repo.
 5. Visualize and (to some extent) enforce quality standards for first-party code and third-party dependencies.
 
-Have a look at the [project docs](./docs/index.md) for further information.
+Have a look at the [project docs pages](https://lorenzo-w.github.io/python-fullstack/index.html) for further information.
