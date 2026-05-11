@@ -527,10 +527,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-clone-git-repo-via-vscode" class="md-nav__link">
+  <a href="#2-configure-podman" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Clone Git repo via VSCode
+        2. Configure Podman
       
     </span>
   </a>
@@ -538,10 +538,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-install-all-recommended-vscode-extensions" class="md-nav__link">
+  <a href="#3-clone-git-repo-via-vscode" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Install all recommended VSCode extensions
+        3. Clone Git repo via VSCode
       
     </span>
   </a>
@@ -549,10 +549,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-install-all-python-dependencies-via-uv" class="md-nav__link">
+  <a href="#4-install-all-recommended-vscode-extensions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Install all Python dependencies via UV
+        4. Install all recommended VSCode extensions
       
     </span>
   </a>
@@ -560,10 +560,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-configure-ai-assistants" class="md-nav__link">
+  <a href="#5-install-all-python-dependencies-via-uv" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Configure AI assistants
+        5. Install all Python dependencies via UV
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-configure-ai-assistants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Configure AI assistants
       
     </span>
   </a>
@@ -974,10 +985,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-clone-git-repo-via-vscode" class="md-nav__link">
+  <a href="#2-configure-podman" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Clone Git repo via VSCode
+        2. Configure Podman
       
     </span>
   </a>
@@ -985,10 +996,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-install-all-recommended-vscode-extensions" class="md-nav__link">
+  <a href="#3-clone-git-repo-via-vscode" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Install all recommended VSCode extensions
+        3. Clone Git repo via VSCode
       
     </span>
   </a>
@@ -996,10 +1007,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-install-all-python-dependencies-via-uv" class="md-nav__link">
+  <a href="#4-install-all-recommended-vscode-extensions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Install all Python dependencies via UV
+        4. Install all recommended VSCode extensions
       
     </span>
   </a>
@@ -1007,10 +1018,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-configure-ai-assistants" class="md-nav__link">
+  <a href="#5-install-all-python-dependencies-via-uv" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Configure AI assistants
+        5. Install all Python dependencies via UV
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-configure-ai-assistants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Configure AI assistants
       
     </span>
   </a>
@@ -1117,9 +1139,11 @@
 <h2 id="1-system-setup">1. System setup<a class="headerlink" href="#1-system-setup" title="Permanent link">¤</a></h2>
 <p>A handful of applications need to be installed directly onto your OS. These are all listed in files contained within this repo, which can be directly parsed by a package manager. Exact steps depend on which OS you have:</p>
 <h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">¤</a></h3>
-<p>Download the file <code>configuration.winget</code> from the repo's top-level directory, open a <a href="https://learn.microsoft.com/en-au/answers/questions/5863977/how-to-access-power-shell-on-win-11">PowerShell terminal</a>, <code>cd</code> to your download folder, and run this command:</p>
-<div class="language-powershell highlight"><pre><span></span><code><span class="n">winget</span> <span class="n">configure</span> <span class="o">-f</span> <span class="n">configuration</span><span class="p">.</span><span class="n">winget</span>
-</code></pre></div>
+<p>Download the file <code>configuration.winget</code> from the repo's top-level directory, then open your Downloads-folder and double-click the file.</p>
+<blockquote>
+<p>Installation may take a while depending on the speed of your PC and internet connection.</p>
+<p>During installation, you may be asked to grant admin privileges multiple times. Please do so. Installers are all official and verified.</p>
+</blockquote>
 <h3 id="macos-or-linux">MacOS or Linux<a class="headerlink" href="#macos-or-linux" title="Permanent link">¤</a></h3>
 <ol>
 <li>Install <a href="https://brew.sh/">Homebrew</a></li>
@@ -1128,16 +1152,36 @@
 </ol>
 <div class="language-bash highlight"><pre><span></span><code>brew<span class="w"> </span>bundle<span class="w"> </span>install<span class="w"> </span>--file<span class="w"> </span>Brewfile
 </code></pre></div>
-<h2 id="2-clone-git-repo-via-vscode">2. Clone Git repo via VSCode<a class="headerlink" href="#2-clone-git-repo-via-vscode" title="Permanent link">¤</a></h2>
-<p>See this <a href="https://code.visualstudio.com/docs/sourcecontrol/repos-remotes#_clone-repositories">offical guide</a>.</p>
-<h2 id="3-install-all-recommended-vscode-extensions">3. Install all recommended VSCode extensions<a class="headerlink" href="#3-install-all-recommended-vscode-extensions" title="Permanent link">¤</a></h2>
-<p>VSCode should prompt you for exactly that right after cloning the repo. If so, click <em>Yes</em>. If not, go to the extensions tab in the left sidebar, enter <code>@recommended</code> in the search bar and install all manually.</p>
-<h2 id="4-install-all-python-dependencies-via-uv">4. Install all Python dependencies via UV<a class="headerlink" href="#4-install-all-python-dependencies-via-uv" title="Permanent link">¤</a></h2>
-<p><a href="https://code.visualstudio.com/docs/terminal/basics#_terminals-in-editor-area">Open an integrated terminal</a> in VSCode and enter <code>uv sync</code>. This should rather quickly install all required packages, as defined in <code>pyproject.toml</code>.</p>
+<h2 id="2-configure-podman">2. Configure Podman<a class="headerlink" href="#2-configure-podman" title="Permanent link">¤</a></h2>
 <blockquote>
-<p>If you have trouble executing <code>uv</code> in the terminal, try installing it again <a href="https://docs.astral.sh/uv/#__tabbed_1_2">via the official script</a>.</p>
+<p><em>Podman</em> is a container runtime that allows you to run Linux-based applications on other systems such as Windows. <em>Podman Desktop</em> is a nice GUI on top of <em>Podman</em>.</p>
 </blockquote>
-<h2 id="5-configure-ai-assistants">5. Configure AI assistants<a class="headerlink" href="#5-configure-ai-assistants" title="Permanent link">¤</a></h2>
+<ol>
+<li>
+<p>Start <em>Podman Desktop</em> (search for it in the start menu):</p>
+<p><img alt="alt text" src="img/podman-start-menu.png" /></p>
+</li>
+<li>
+<p>Click the <em>Set up</em> button in the Podman window:</p>
+<p><img alt="alt text" src="img/podman-main-window.png" /></p>
+</li>
+<li>
+<p>Click through the setup wizard until you reach this final screen, then click <em>Next</em> a final time:</p>
+<p><img alt="alt text" src="img/podman-successful-setup.png" /></p>
+</li>
+</ol>
+<p>Podman should now be running in the background. You may close the window.</p>
+<h2 id="3-clone-git-repo-via-vscode">3. Clone Git repo via VSCode<a class="headerlink" href="#3-clone-git-repo-via-vscode" title="Permanent link">¤</a></h2>
+<p>See this <a href="https://code.visualstudio.com/docs/sourcecontrol/repos-remotes#_clone-repositories">offical guide</a>.</p>
+<h2 id="4-install-all-recommended-vscode-extensions">4. Install all recommended VSCode extensions<a class="headerlink" href="#4-install-all-recommended-vscode-extensions" title="Permanent link">¤</a></h2>
+<p>VSCode should prompt you for exactly that right after cloning the repo. If so, click <em>Yes</em>. If not, go to the extensions tab in the left sidebar, enter <code>@recommended</code> in the search bar and install all manually:</p>
+<p><img alt="alt text" src="img/vscode-extensions-recommended.png" /></p>
+<h2 id="5-install-all-python-dependencies-via-uv">5. Install all Python dependencies via UV<a class="headerlink" href="#5-install-all-python-dependencies-via-uv" title="Permanent link">¤</a></h2>
+<p>Open an integrated terminal in VSCode (e.g. via shortcut <code>CTRL</code> + <code>Ö</code>) and enter <code>uv sync</code>. This should rather quickly install all required packages, as defined in <code>pyproject.toml</code>.</p>
+<blockquote>
+<p>If you have trouble executing <code>uv</code> in the terminal, try restarting VSCode or installing UV again <a href="https://docs.astral.sh/uv/#__tabbed_1_2">via the official script</a>.</p>
+</blockquote>
+<h2 id="6-configure-ai-assistants">6. Configure AI assistants<a class="headerlink" href="#6-configure-ai-assistants" title="Permanent link">¤</a></h2>
 <ol>
 <li>
 <p>Close and re-open the VSCode window to make sure that all required background tasks are running.</p>
@@ -1152,6 +1196,9 @@
 <li>
 <p>Go to the <em>Roo Code</em> tab, enter settings menua via top-right gear icon ⚙️, and create a new cofiguration profile with details as given by below image. If using the KI-Toolbox by KIT SCC, you can follow <a href="https://www.zml.kit.edu/downloads/KI.Toolbox_API.pdf">this tutorial</a> (page 4) to generate your API key. Don't forget to hit <em>Save</em>.</p>
 <p><img alt="alt text" src="img/roo-config.png" /></p>
+<blockquote>
+<p>Roo Code may ask you to login with their service. <strong>You do not need to login to use the extension</strong>. There should be some button to bypass it.</p>
+</blockquote>
 </li>
 <li>
 <p>Go back to the Roo chat interface by clicking the pencil icon ✏️ on the top, then click on the bottom right database icon. In the open menu, enter details as given by the image below, then hit <em>Save</em> and finally <em>Start Indexing</em>. The database icon must turn green after some time, if it worked.</p>
