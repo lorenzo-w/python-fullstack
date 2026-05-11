@@ -1,7 +1,12 @@
 services:
   web-gui:
-    build: .
-    command: "uv run vtr serve-streamlit"
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+      target: vtr
+      args:
+        DEPS_GROUP: web-gui
+    command: serve-streamlit
     volumes:
       - app-data:/app/data
     restart: unless-stopped
@@ -9,8 +14,13 @@ services:
       - db
 
   rest-api:
-    build: .
-    command: "uv run vtr serve-fastapi-prod"
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+      target: vtr
+      args:
+        DEPS_GROUP: rest-api
+    command: serve-fastapi-prod
     environment:
       APP_DB_URL: "postgresql://app:${SERVICE_PASSWORD_DB}@db/app"
     volumes:
@@ -20,10 +30,13 @@ services:
       - db
 
   docs:
-    build: .
-    command: "uv run vtr serve-docs-prod"
-    environment:
-      SITE_URL: "${SERVICE_URL_DOCS}/docs"
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+      target: nginx-docs
+      args:
+        DEPS_GROUP: docs
+        SITE_URL: "${SERVICE_URL_DOCS}/docs"
     restart: unless-stopped
 
   db:

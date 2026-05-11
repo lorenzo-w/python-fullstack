@@ -44,6 +44,7 @@ This will mostly be a series of prompts to be put into the Roo chat with a bit o
 
 See [how to page](./how-to-check-quality.md).
 
-## 5. Deploy locally to test
+## 5. Test the app
 
-See [how to page](./how-to-deploy-locally.md).
+- You can test the command-line interface from the VSCode terminal by entering `uv run cli --help`. This should display useful help on available commands, where your new command should be listed.
+- For testing the web GUI, REST API and Docs pages, you need to run the respective servers locally. See the according [how to page](./how-to-deploy-locally.md).

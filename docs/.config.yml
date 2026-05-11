@@ -11,7 +11,7 @@ dev_addr: 127.0.0.1:9000
 nav:
   - Home: index.md
   - Usage:
-      - how-to-get-started.md
+      - How to get started: how-to-get-started.md
       - tutorial-ide-vscode.md
       - tutorial-roo-code.md
       - tutorial-code-integration.md
@@ -88,8 +88,8 @@ markdown_extensions:
         kwds:
           case: lower
   - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji 
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg 
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       pygments_lang_class: true
   - pymdownx.magiclink
@@ -97,7 +97,7 @@ markdown_extensions:
       custom_fences:
         - name: mermaid
           class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format 
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
       slugify: !!python/object/apply:pymdownx.slugs.slugify
@@ -119,7 +119,7 @@ plugins:
       default_handler: python
       handlers:
         python:
-          paths: [ ../src, ../app ]
+          paths: [../src, ../app]
           inventories:
             - https://docs.python.org/3/objects.inv
             - https://pydantic.dev/docs/validation/latest/objects.inv
@@ -134,7 +134,7 @@ plugins:
             merge_init_into_class: true
             parameter_headings: true
             type_parameter_headings: true
-            preload_modules: [ mkdocstrings ]
+            preload_modules: [mkdocstrings]
             relative_crossrefs: true
             scoped_crossrefs: true
             separate_signature: true
