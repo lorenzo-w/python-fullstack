@@ -1,18 +1,27 @@
-# Install uv
-FROM ghcr.io/astral-sh/uv:alpine
+FROM ghcr.io/astral-sh/uv:alpine AS base
 
-# Change the working directory to the `app` directory
 WORKDIR /app
+COPY pyproject.toml uv.lock ./
 
-# Install dependencies
-RUN --mount=type=cache,target=/root/.cache/uv \
-    --mount=type=bind,source=uv.lock,target=uv.lock \
-    --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
-    uv sync --locked --no-install-project
+ARG DEPS_GROUP=dev
+RUN --mount=type=cache,target=/root/.cache/uv uv sync --group ${DEPS_GROUP} --no-install-project
 
-# Copy the project into the image
 COPY . /app
+RUN --mount=type=cache,target=/root/.cache/uv uv sync --group ${DEPS_GROUP}
 
-# Sync the project
-RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --locked
+FROM base AS vtr
+
+ENTRYPOINT ["uv", "run", "vtr"]
+
+FROM base as docs
+
+ARG SITE_URL="http://0.0.0.0:9000"
+RUN uv run vtr build-docs
+
+FROM docker.io/nginx:stable AS nginx-docs
+
+COPY --from=docs /app/dist/docs /usr/share/nginx/html
+
+FROM base AS cli
+
+ENTRYPOINT ["uv", "run", "cli"]

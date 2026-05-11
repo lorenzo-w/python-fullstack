@@ -1,7 +1,12 @@
 services:
   web-gui:
-    build: .
-    command: "uv run vtr serve-streamlit"
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+      target: vtr
+      args:
+        DEPS_GROUP: web-gui
+    command: serve-streamlit
     volumes:
       - app-data:/app/data
     ports:
@@ -11,10 +16,15 @@ services:
       - db
 
   rest-api:
-    build: .
-    command: "uv run vtr serve-fastapi-prod"
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+      target: vtr
+      args:
+        DEPS_GROUP: rest-api
+    command: serve-fastapi-prod
     environment:
-      APP_DB_URL: "postgresql://app:app@db/app"
+      APP_DB_URL: "postgresql+psycopg://app:app@db/app"
     volumes:
       - app-data:/app/data
     ports:
@@ -24,12 +34,14 @@ services:
       - db
 
   docs:
-    build: .
-    command: "uv run vtr serve-docs-prod"
-    environment:
-      SITE_URL: "http://127.0.0.1:9000"
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+      target: nginx-docs
+      args:
+        DEPS_GROUP: docs
     ports:
-      - 9000:9000
+      - 9000:80
     restart: unless-stopped
 
   db:
@@ -37,7 +49,7 @@ services:
     environment:
       POSTGRES_DB: app
       POSTGRES_USER: app
-      POSTGRES_PASSWORD: "${SERVICE_PASSWORD_DB}"
+      POSTGRES_PASSWORD: app
     volumes:
       - db-data:/var/lib/postgresql
     restart: unless-stopped
