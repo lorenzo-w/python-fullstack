@@ -24,7 +24,8 @@ dev = [
     { include-group = "lint" },
     { include-group = "test" },
     { include-group = "docs" },
-    { include-group = "deploy" },
+    { include-group = "rest-api" },
+    { include-group = "web-gui" },
 ]
 ci = [
     { include-group = "dev" },
