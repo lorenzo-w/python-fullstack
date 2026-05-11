@@ -21,8 +21,8 @@ def tube_backpressure(
       flow_rate: Volumetric flow rate in mL/min
       diameter: in mm
       length: in mm
-      mu: in kg/m^3
-      rho: in Pa.s
+      mu: in Pa.s
+      rho: in kg/m^3
     Returns:
       backpressure in Pa
     """
@@ -59,8 +59,8 @@ def tube_backpressure(
         L=l_m,  # pyright: ignore[reportArgumentType]
         D=d_m,  # pyright: ignore[reportArgumentType]
     )
-    k += entrance_sharp() * 5
-    k += exit_normal() * 5
+    k += entrance_sharp()
+    k += exit_normal()
 
     return dP_from_K(
         K=k,
