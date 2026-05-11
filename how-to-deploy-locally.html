@@ -252,17 +252,18 @@
     
   
   
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="how-to-get-started.html" class="md-tabs__link">
-        
-  
-  
     
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="how-to-get-started.html" class="md-tabs__link">
+          
+  
   
   Usage
 
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
@@ -391,9 +392,8 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <div class="md-nav__link md-nav__container">
-            <a href="how-to-get-started.html" class="md-nav__link ">
-              
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
   
   
   <span class="md-ellipsis">
@@ -407,14 +407,8 @@
   
   
 
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
+            <span class="md-nav__icon md-icon"></span>
+          </label>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
@@ -426,6 +420,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="how-to-get-started.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to get started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -816,7 +838,7 @@
     
     
       <li class="md-path__item">
-        <a href="tutorial-ide-vscode.html" class="md-path__link">
+        <a href="how-to-get-started.html" class="md-path__link">
           
   <span class="md-ellipsis">
     Usage
@@ -857,9 +879,16 @@
 <h1 id="how-to-deploy-locally">How to deploy locally<a class="headerlink" href="#how-to-deploy-locally" title="Permanent link">¤</a></h1>
 <p>This document explains how to deploy a combined webapp with the FastAPI REST API, Streamlit UI, docs pages and postgres for persistence on the localhost.</p>
 <ol>
-<li>Make sure you have compose <a href="https://podman-desktop.io/docs/compose/setting-up-compose">set up in Podman-Desktop</a>.</li>
-<li>Run the dedicated <code>deploy-local</code> task in VSCode.</li>
+<li>Make sure you have <a href="https://podman-desktop.io/docs/compose/setting-up-compose">compose set up in Podman-Desktop</a>.</li>
+<li>Run the dedicated <code>deploy-local</code> task in VSCode (<code>Ctrl</code> + <code>Shift</code> + <code>P</code>, then search for <em>Run task</em>).</li>
 </ol>
+<p>You should now be able to access the following websites via your browser:</p>
+<ul>
+<li><a href="http://localhost:7000"><code>http://localhost:7000</code></a>: Streamlit Web UI</li>
+<li><a href="http://localhost:8000/docs"><code>http://localhost:8000/docs)</code></a>: FastAPI REST API Docs (for API running on <a href="http://localhost:8000"><code>http://localhost:8000)</code></a>)</li>
+<li><a href="http://localhost:9000"><code>http://localhost:9000</code></a>: Repository Docs</li>
+</ul>
+<p>To tear everything down, hit <code>CTRL</code> + <code>C</code> a couple of times from within the VSCode terminal where the local deployment is running.</p>
 
 
 
